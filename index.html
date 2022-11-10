@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora YHC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(92, 59, 221);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container"> <style> col</style>
+        <h1> Calculator <br> YHC </h1>
+        <div class="col-3">
+            <div class="mt-1">
+                <input type="text" id="resul">    
+            </div>
+
+            <div class="mt-1 " >
+                <button class="btn btn-dark" onclick="jpotencia()">∧</button>
+                <button class="btn btn-dark" onclick="jraiz()">√</button>
+                <button class="btn btn-dark" onclick="jcoseno()">Cos</button>
+                <button class="btn btn-dark" onclick="jtangente()">Tan</button>
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-dark" onclick="jboton(1)">1</button>
+                <button class="btn btn-dark" onclick="jboton(2)">2</button>
+                <button class="btn btn-dark" onclick="jboton(3)">3</button>
+                <button class="btn btn-dark" onclick="jsuma()">+</button>
+                
+            </div>
+            
+            <div class="mt-1">
+                <button class="btn btn-dark" onclick="jboton(4)">4</button>
+                <button class="btn btn-dark" onclick="jboton(5)">5</button>
+                <button class="btn btn-dark" onclick="jboton(6)">6</button>
+                <button class="btn btn-dark" onclick="jresta()">─</button>
+                
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-dark" onclick="jboton(7)">7</button>
+                <button class="btn btn-dark" onclick="jboton(8)">8</button>
+                <button class="btn btn-dark" onclick="jboton(9)">9</button>
+                <button class="btn btn-dark" onclick="jmultiplicacion()">X</button>
+                
+            </div>
+
+            <div class="mt-1">
+                <button class="btn btn-dark" onclick="jboton(0)">0</button>
+                <button class="btn btn-dark" onclick="jborra()">c</button>
+                <button class="btn btn-dark" onclick="jigual()">=</button>
+                <button class="btn btn-dark" onclick="jdivicion()">÷</button>
+               
+                
+            </div>
+
+            <div class="mt-1"> 
+                <button class="btn btn-dark" onclick="jsaludo()">Say hello </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+
+    <script>
+        var num = "";
+        var val1 = "";
+        var oper = 0;
+
+        function jigual(){
+            if(oper == 1){
+                tmp = parseInt(val1) + parseInt(num);
+                $("#resul").val(tmp);
+                num = tmp;
+            }
+            if(oper == 2){
+                tmp = parseInt(val1) - parseInt(num);
+                $("#resul").val(tmp);
+                num = tmp;
+            }
+            if(oper == 3){
+                tmp = parseInt(val1) * parseInt(num);
+                $("#resul").val(tmp);
+                num = tmp;
+            }
+            if(oper == 4){
+                tmp = parseInt(val1) / parseInt(num);
+                $("#resul").val(tmp);
+                num = tmp;
+            }
+            if(oper == 5){
+                tmp = Math.pow(parseInt(val1), parseInt(num));
+                $("#resul").val(tmp);
+                num = tmp;
+            }
+            oper = 0;
+        }
+        function jsuma(){
+            val1 = num;
+            oper =1;
+            jborra();
+        }
+        function jresta(){
+            val1 = num;
+            oper =2;
+            jborra();
+        }
+        function jmultiplicacion(){
+            val1 = num;
+            oper =3;
+            jborra();
+        }
+        function jdivicion(){
+            val1 = num;
+            oper =4;
+            jborra();
+        }
+        function jpotencia(){
+            val1 = num;
+            oper =5;
+            jborra();
+        }
+        function jraiz(){
+            val1 = num;
+            tmp = Math.sqrt(parseInt(val1));
+            $("#resul").val(tmp);
+            num = tmp;            
+        }
+        function jcoseno(){
+            val1 = num;
+            angulo = parseInt(val1) * Math.PI/180.0;
+            tmp = Math.cos(angulo);
+            $("#resul").val(tmp);
+            num = tmp;
+        }
+        function jtangente(){
+            val1 = num;
+            angulo = parseInt(val1) * Math.PI/180.0;
+            tmp = Math.tan(angulo);
+            $("#resul").val(tmp);
+            num = tmp;
+        }
+        function jboton( valor ){
+            num = num + valor;
+            $("#resul").val(num);
+        }
+        function jborra (){
+            $("#resul").val("");
+            num = "";
+        }
+        function jsaludo(){
+            $("#resul").val("Yahir Herrera Covarrubias");
+        }      
+
+    </script>
+  </body>
+</html>
